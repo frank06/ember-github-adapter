@@ -1,25 +1,14 @@
-import DS from 'ember-data';
+import ApplicationSerializer from './application';
 
-export default DS.JSONAPISerializer.extend({
+export default ApplicationSerializer.extend({  
+  
+  primaryKey: 'login',
   
   normalizeFindRecordResponse(store, type, payload) {
-    return {
-      data: {
-        id: payload.login,
-        type: type.modelName,
-        attributes: {
-          name: payload.name,
-          publicRepos: payload.public_repos
-        },
-        relationships: {
-          repos: {
-            links: {
-              related: payload.repos_url
-            }
-          }
-        }
-      }
+    payload.links = {
+      repositories: payload.repos_url
     }
+    return this._super(...arguments);
   }
   
 });

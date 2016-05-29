@@ -1,10 +1,1 @@
-<strong>{{ model.name }}</strong> ({{ model.publicRepos }})
-
-<ul>
-{{#each model.repos as |repo|}}
-  <li>
-    {{repo.fullName}} ({{repo.language}}, {{repo.stargazersCount}} stars)
-    <button {{action 'star' repo}}>star</button>
-  </li>
-{{/each}}
-</ul>
+{{outlet}}

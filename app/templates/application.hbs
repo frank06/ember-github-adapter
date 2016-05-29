@@ -1,3 +1,10 @@
-<h2 id="title">Welcome to Ember</h2>
+<strong>{{ model.name }}</strong> (total {{ model.publicRepos }})
 
-{{outlet}}
+<ul>
+{{#each model.repositories as |repo|}}
+  <li>
+    {{repo.fullName}} ({{repo.language}}, {{repo.stargazersCount}} stars)
+    <button {{action 'star' repo}}>Star!</button>
+  </li>
+{{/each}}
+</ul>

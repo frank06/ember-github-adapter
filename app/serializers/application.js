@@ -1,7 +1,10 @@
-import DS from 'ember-data';
+import Ember from 'ember';
+import JSONSerializer from 'ember-data/serializers/json';
 
-export default DS.JSONSerializer.extend({
-  keyForAttribute: function(key) {
+export default JSONSerializer.extend({
+  
+  keyForAttribute(key) {
     return Ember.String.decamelize(key);
   }
+  
 });
