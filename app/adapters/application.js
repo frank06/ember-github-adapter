@@ -1,5 +1,5 @@
-import RESTAdapter from 'ember-data/adapters/rest';
+import DS from 'ember-data';
 
-export default RESTAdapter.extend({
-  host: 'https://api.github.com'
-});
+export default class ApplicationAdapter extends DS.RESTAdapter {
+  host = 'https://api.github.com'
+}

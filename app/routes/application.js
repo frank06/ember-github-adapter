@@ -1,15 +1,7 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
-  
-  actions: {
-    star(repo) {
-      repo.save();
-    }
-  },
-  
+export default class ApplicationRoute extends Route {  
   model() {
     return this.store.findRecord('user', 'frank06');
   }
-  
-});
+}

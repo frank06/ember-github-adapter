@@ -1,14 +1,12 @@
 import ApplicationSerializer from './application';
 
-export default ApplicationSerializer.extend({  
-  
-  primaryKey: 'login',
-  
+export default class UserSerializer extends ApplicationSerializer {
+
   normalizeFindRecordResponse(store, type, payload) {
     payload.links = {
       repositories: payload.repos_url
     }
-    return this._super(...arguments);
+    return super.normalizeFindRecordResponse(...arguments);
   }
-  
-});
+
+}

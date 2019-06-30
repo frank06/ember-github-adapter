@@ -1,8 +1,8 @@
-import Model from 'ember-data/model';
-import attr from 'ember-data/attr';
+import DS from 'ember-data';
+const { Model, attr } = DS;
 
-export default Model.extend({
-  fullName: attr(),
-  language: attr(),
-  stargazersCount: attr('number')
-});
+export default class RepositoryModel extends Model {
+  @attr() fullName;
+  @attr() language;
+  @attr('number') stargazersCount;
+}

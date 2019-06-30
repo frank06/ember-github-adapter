@@ -1,10 +1,10 @@
-<strong>{{ model.name }}</strong> (total {{ model.publicRepos }})
+<strong>{{ this.model.name }}</strong> (total {{ this.model.publicRepos }})
 
 <ul>
-{{#each model.repositories as |repo|}}
-  <li>
-    {{repo.fullName}} ({{repo.language}}, {{repo.stargazersCount}} stars)
-    <button {{action 'star' repo}}>Star!</button>
-  </li>
-{{/each}}
+ {{#each this.model.repositories as |repo|}}
+   <li>
+     {{repo.fullName}} ({{repo.language}}, {{repo.stargazersCount}} stars)
+     <button {{on "click" (fn this.star repo)}}>Star!</button>
+   </li>
+ {{/each}}
 </ul>
